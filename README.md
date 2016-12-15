@@ -9,7 +9,7 @@ All you need is Python and preferably [pip](https://pypi.python.org/pypi/pip). C
 
 ### Clone + pip
 
-    $ git clone git@github.com:abourguignon/jinja2-live-parser.git
+    $ git clone git@github.com:peschmae/jinja2-live-parser.git
     $ pip install -r requirements.txt
     $ python parser.py
 
@@ -22,7 +22,7 @@ Build it:
 
 Or simply pull it from registry (without building):
 
-    docker run -d -p 5000:5000 sahilsk/j2parser
+    docker run -d -p 5000:5000 psmae/jinja2-live-parser
 
 
 ## Usage
