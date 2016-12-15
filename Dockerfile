@@ -1,8 +1,9 @@
 ###################################
 # Jinja2 live parser Dockerfile
 #
-# Version: 0.1
+# Version: 0.2
 # Author:  Sonu K. Meena(sahilsk)<sonukr666@gmail.com >
+# Author:  Mathias Petermann(peschmae)<mathias.petermann@gmail.com>
 ###################################
 
 # Pull base image.
@@ -16,7 +17,7 @@ WORKDIR /data
 RUN pip install -r requirements.txt
 
 # Change bind host
-RUN  sed -i 's/\(.*\)app.run()/\1app.run(host="0.0.0.0")/'  parser.py
+RUN sed -i 's/host=config.HOST/host="0.0.0.0"/g' parser.py
 
 # Expose port to Host
 EXPOSE 5000
