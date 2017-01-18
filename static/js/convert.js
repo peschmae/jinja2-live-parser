@@ -10,6 +10,7 @@ $(document).ready(function(){
         var is_checked_showwhitespaces = $('input[name="showwhitespaces"]').is(':checked') ? 1:0;
         var is_checked_dummyvalues = $('input[name="dummyvalues"]').is(':checked') ? 1:0;
         var input_type = $('input[name="input_type"]:checked').val();
+        var is_checked_prefixstackstorm = $('input[name="prefixstackstorm"]').is(':checked') ? 1:0;
 
 
         // Push the input to the Jinja2 api (Python)
@@ -18,7 +19,8 @@ $(document).ready(function(){
             values: $('#values').val(),
             input_type: input_type,
             showwhitespaces: is_checked_showwhitespaces,
-            dummyvalues: is_checked_dummyvalues
+            dummyvalues: is_checked_dummyvalues,
+            prefixstackstorm: is_checked_prefixstackstorm
         }).done(function(response) {
             // Grey out the white spaces chars if any
             response = response.replace(/•/g, '<span class="whitespace">•</span>');

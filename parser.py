@@ -62,6 +62,10 @@ def convert():
         if request.form['input_type'] == "json":
             try:
                 values = json.loads(request.form['values'])
+                print(values)
+                if bool(int(request.form['prefixstackstorm'])):
+                    values = {'execution': {'result': {'stdout': values}}}
+                print(values)
             except ValueError as e:
                 return "Value error in JSON: {0}".format(e)
         # Check YAML for errors
@@ -78,6 +82,8 @@ def convert():
         rendered_jinja2_tpl = jinja2_tpl.render(values)
     except (ValueError, TypeError) as e:
         return "Error in your values input filed: {0}".format(e)
+    except Exception:
+        return "Error while parsing template, did you check prefix stackstorm?"
 
     if bool(int(request.form['showwhitespaces'])):
         # Replace whitespaces with a visible character (will be grayed with javascript)
